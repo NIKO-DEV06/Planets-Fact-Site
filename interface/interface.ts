@@ -21,4 +21,5 @@ export interface PlanetDesc {
     internal: string;
     geology: string;
   };
+  maincolour: string;
 }
