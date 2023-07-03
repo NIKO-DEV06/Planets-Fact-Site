@@ -1,6 +1,6 @@
 import "./globals.css";
 import { League_Spartan } from "next/font/google";
-import stars from "@/assets/background-stars.svg";
+import stars from "@/public/assets/background-stars.svg";
 import Image from "next/image";
 import Header from "@/components/Header";
 
@@ -28,7 +28,7 @@ export default function RootLayout({
         <Image
           src={stars}
           alt="stars"
-          className="absolute animate-pulse lg:animate-bounce-slow bg-contain scale-[2] z-[-50] md:scale-[1] overflow-x-hidden"
+          className="absolute animate-pulse lg:animate-bounce-slow bg-contain scale-[2] z-[-50] md:scale-[1] overflow-hidden"
         />
         {children}
       </body>

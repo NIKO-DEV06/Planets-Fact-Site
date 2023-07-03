@@ -1,5 +1,5 @@
 import Image from "next/image";
-import right from "@/assets/icon-chevron.svg";
+import right from "@/public/assets/icon-chevron.svg";
 import data from "@/public/data.json";
 import Link from "next/link";
 
@@ -9,10 +9,11 @@ const MobileMenu = ({
   setMenuIsOpen: (isOpen: boolean) => void;
 }) => {
   return (
-    <div className="bg-[#070724] inset-0 md:hidden">
-      <div className="pt-[8rem] flex flex-col gap-[1.5rem]">
+    <div className="bg-[#070724] h-[115vh] inset-0 md:hidden z-50">
+      <div className="pt-[7rem] flex flex-col gap-[1.5rem]">
         {data.map((dta) => (
           <Link
+            key={dta.name}
             onClick={() => setMenuIsOpen(false)}
             href={`/${dta.name.toLocaleLowerCase()}`}
             className="flex opacity-70 hover:opacity-100 duration-200 justify-between items-center mx-[1.5rem] border-b-[0.5px] border-b-[#ffffffc5] pb-[1.5rem]"
