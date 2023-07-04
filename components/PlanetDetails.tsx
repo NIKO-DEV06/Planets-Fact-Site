@@ -19,10 +19,10 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
   return (
     <section className="pt-[7rem] md:pt-[15rem] w-screen pb-[4rem]">
       <MobileToggle mode={mode} setMode={setMode} planet={planet} />
-      <div className="flex flex-col justify-center items-center translate-y-[-2rem] md:translate-y-[-5rem] lg:translate-y-0">
+      <div className="flex flex-col lg:flex-row lg:gap-[3rem] justify-center items-center translate-y-[-2rem] md:translate-y-[-5rem] lg:translate-y-[-3rem]">
         <div className="relative">
           <Image
-            className="w-auto h-auto scale-[0.5] md:scale-[0.6]"
+            className="w-auto h-auto scale-[0.5] md:scale-[0.6] lg:scale-[1]"
             src={
               mode === "overview"
                 ? planet.images.planet
@@ -43,15 +43,17 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
             alt="geology"
             className={`${
               mode === "surface" ? "absolute" : "hidden"
-            }  right-1/2 translate-x-1/2 bottom-[3rem] w-auto h-auto`}
+            }  right-1/2 translate-x-1/2 bottom-[3rem] w-auto h-auto md:scale-150 lg:scale-[2]`}
           />
         </div>
-        <div className="translate-y-[-2rem] md:translate-y-0 flex md:px-[4rem] md:gap-[5rem]">
-          <div className="px-[1.5rem] md:px-0 text-center md:text-left flex flex-col gap-[1rem]">
-            <h1 className={`${antonio.className} uppercase text-[3.5rem]`}>
+        <div className="translate-y-[-2rem] md:translate-y-0 flex lg:flex-col md:px-[4rem] md:gap-[5rem]">
+          <div className="px-[1.5rem] lg:w-[23rem] md:px-0 text-center md:text-left flex flex-col gap-[1rem]">
+            <h1
+              className={`${antonio.className} uppercase text-[3.5rem] lg:font-bold lg:text-[4rem]`}
+            >
               {planet.name}
             </h1>
-            <p className="font-[300] h-[8rem] text-[0.95rem]">
+            <p className="font-[300] h-[8rem] text-[0.95rem] lg:text-[1rem]">
               {mode === "overview"
                 ? planet.overview.content
                 : mode === "structure"
@@ -87,7 +89,7 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
                 backgroundColor: mode === "overview" ? planet.maincolour : "",
               }}
               onClick={() => setMode("overview")}
-              className={`flex gap-[1rem] border-[1px] py-[0.9rem] w-[20rem] border-[#ffffff80] cursor-pointer ${
+              className={`flex gap-[1rem] border-[1px] py-[0.9rem] w-[20rem] md:w-[23rem] border-[#ffffff80] cursor-pointer ${
                 mode !== "overview" && "hover:bg-[#d8d8d871] duration-200"
               }`}
             >
@@ -103,7 +105,7 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
                 backgroundColor: mode === "structure" ? planet.maincolour : "",
               }}
               onClick={() => setMode("structure")}
-              className={`flex gap-[1rem] border-[1px] py-[0.9rem] w-[20rem] border-[#ffffff80] cursor-pointer ${
+              className={`flex gap-[1rem] border-[1px] py-[0.9rem] w-[20rem] md:w-[23rem] border-[#ffffff80] cursor-pointer ${
                 mode !== "structure" && "hover:bg-[#d8d8d871] duration-200"
               }`}
             >
@@ -119,7 +121,7 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
                 backgroundColor: mode === "surface" ? planet.maincolour : "",
               }}
               onClick={() => setMode("surface")}
-              className={`flex gap-[1rem] border-[1px] py-[0.9rem] w-[20rem] border-[#ffffff80] cursor-pointer ${
+              className={`flex gap-[1rem] border-[1px] py-[0.9rem] w-[20rem] md:w-[23rem] border-[#ffffff80] cursor-pointer ${
                 mode !== "surface" && "hover:bg-[#d8d8d871] duration-200"
               }`}
             >
@@ -133,8 +135,8 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
           </div>
         </div>
       </div>
-      <div className="px-[1.5rem] flex flex-col gap-[1rem] mt-[2.5rem] translate-y-[-2rem] md:translate-y-0">
-        <div className="border-[1px] border-[#ffffff80] w-full flex justify-between items-center px-[2rem] py-[0.7rem]">
+      <div className="px-[1.5rem] md:px-[4rem] flex flex-col md:flex-row gap-[1rem] mt-[2.5rem] translate-y-[-2rem] md:translate-y-0">
+        <div className="border-[1px] border-[#ffffff80] w-full flex md:flex-col justify-between items-center md:items-start md:justify-center px-[2rem] md:px-[1.5rem] py-[0.7rem] md:py-[1rem]">
           <p className="tracking-widest text-[0.9rem] opacity-50">
             ROTATION TIME
           </p>
@@ -142,7 +144,7 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
             {planet.rotation}
           </p>
         </div>
-        <div className="border-[1px] border-[#ffffff80] w-full flex justify-between items-center px-[2rem] py-[0.7rem]">
+        <div className="border-[1px] border-[#ffffff80] w-full flex md:flex-col justify-between items-center md:items-start px-[2rem] md:px-[1.5rem] py-[0.7rem] md:py-[1rem]">
           <p className="tracking-widest text-[0.9rem] opacity-50">
             REVOLUTION TIME
           </p>
@@ -150,13 +152,13 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
             {planet.revolution}
           </p>
         </div>
-        <div className="border-[1px] border-[#ffffff80] w-full flex justify-between items-center px-[2rem] py-[0.7rem]">
+        <div className="border-[1px] border-[#ffffff80] w-full flex md:flex-col justify-between items-center md:items-start px-[2rem] md:px-[1.5rem] py-[0.7rem] md:py-[1rem]">
           <p className="tracking-widest text-[0.9rem] opacity-50">Radius</p>
           <p className={`${antonio.className} text-[2rem] uppercase`}>
             {planet.radius}
           </p>
         </div>
-        <div className="border-[1px] border-[#ffffff80] w-full flex justify-between items-center px-[2rem] py-[0.7rem]">
+        <div className="border-[1px] border-[#ffffff80] w-full flex md:flex-col justify-between items-center md:items-start px-[2rem] md:px-[1.5rem] py-[0.7rem] md:py-[1rem]">
           <p className="tracking-widest text-[0.9rem] opacity-50">
             AVERAGE TEMP.
           </p>
