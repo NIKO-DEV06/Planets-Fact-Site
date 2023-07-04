@@ -21,14 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`bg-[#070724] h-full text-white overflow-x-hidden ${spartan.className}`}
-      >
+      <body className={`bg-[#070724] h-full text-white ${spartan.className}`}>
         <Header />
         <Image
           src={stars}
           alt="stars"
-          className="absolute animate-pulse lg:animate-bounce-slow bg-contain scale-[2] z-[-50] md:scale-[1] overflow-hidden"
+          className="absolute animate-pulse w-[100vw] lg:animate-bounce-slow bg-contain z-[-50] "
         />
         {children}
       </body>

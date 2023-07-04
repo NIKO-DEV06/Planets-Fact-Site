@@ -19,10 +19,10 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
   return (
     <section className="pt-[7rem] md:pt-[15rem] w-screen pb-[4rem]">
       <MobileToggle mode={mode} setMode={setMode} planet={planet} />
-      <div className="flex flex-col justify-center items-center translate-y-[-2rem] md:translate-y-0">
+      <div className="flex flex-col justify-center items-center translate-y-[-2rem] md:translate-y-[-5rem] lg:translate-y-0">
         <div className="relative">
           <Image
-            className="w-auto h-auto scale-[0.5]"
+            className="w-auto h-auto scale-[0.5] md:scale-[0.6]"
             src={
               mode === "overview"
                 ? planet.images.planet
@@ -46,12 +46,12 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
             }  right-1/2 translate-x-1/2 bottom-[3rem] w-auto h-auto`}
           />
         </div>
-        <div className="translate-y-[-2rem] md:translate-y-0">
-          <div className="px-[1.5rem] text-center flex flex-col gap-[1rem]">
+        <div className="translate-y-[-2rem] md:translate-y-0 flex md:px-[4rem] md:gap-[5rem]">
+          <div className="px-[1.5rem] md:px-0 text-center md:text-left flex flex-col gap-[1rem]">
             <h1 className={`${antonio.className} uppercase text-[3.5rem]`}>
               {planet.name}
             </h1>
-            <p className="font-[300]">
+            <p className="font-[300] h-[8rem] text-[0.95rem]">
               {mode === "overview"
                 ? planet.overview.content
                 : mode === "structure"
@@ -60,7 +60,7 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
                 ? planet.geology.content
                 : ""}
             </p>
-            <div className="flex justify-center items-center gap-[0.4rem]">
+            <div className="flex justify-center items-center md:justify-start gap-[0.4rem]">
               <p className="font-thin relative opacity-50 tracking-wider">
                 Source :{" "}
                 <Link
@@ -81,10 +81,55 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
               <Image src={linksvg} alt="linksvg" className="w-auto h-auto" />
             </div>
           </div>
-          <div className="hidden md:flex md:flex-col">
-            <div></div>
-            <div></div>
-            <div></div>
+          <div className="hidden md:flex md:flex-col gap-[1.5rem] items-center justify-end">
+            <div
+              style={{
+                backgroundColor: mode === "overview" ? planet.maincolour : "",
+              }}
+              onClick={() => setMode("overview")}
+              className={`flex gap-[1rem] border-[1px] py-[0.9rem] w-[20rem] border-[#ffffff80] cursor-pointer ${
+                mode !== "overview" && "hover:bg-[#d8d8d871] duration-200"
+              }`}
+            >
+              <p className="opacity-60 ml-[2rem] text-[0.9rem] tracking-[0.15em] font-semibold">
+                01
+              </p>
+              <p className=" font-[500] tracking-widest text-[0.9rem]">
+                OVERVIEW
+              </p>
+            </div>
+            <div
+              style={{
+                backgroundColor: mode === "structure" ? planet.maincolour : "",
+              }}
+              onClick={() => setMode("structure")}
+              className={`flex gap-[1rem] border-[1px] py-[0.9rem] w-[20rem] border-[#ffffff80] cursor-pointer ${
+                mode !== "structure" && "hover:bg-[#d8d8d871] duration-200"
+              }`}
+            >
+              <p className="opacity-60 ml-[2rem] text-[0.9rem] tracking-[0.15em] font-semibold">
+                02
+              </p>
+              <p className=" font-[500] tracking-widest text-[0.9rem]">
+                INTERNAL STRUCTURE
+              </p>
+            </div>
+            <div
+              style={{
+                backgroundColor: mode === "surface" ? planet.maincolour : "",
+              }}
+              onClick={() => setMode("surface")}
+              className={`flex gap-[1rem] border-[1px] py-[0.9rem] w-[20rem] border-[#ffffff80] cursor-pointer ${
+                mode !== "surface" && "hover:bg-[#d8d8d871] duration-200"
+              }`}
+            >
+              <p className="opacity-60 ml-[2rem] text-[0.9rem] tracking-[0.15em] font-semibold">
+                03
+              </p>
+              <p className=" font-[500] tracking-widest text-[0.9rem]">
+                SURFACE GEOLOGY
+              </p>
+            </div>
           </div>
         </div>
       </div>
