@@ -7,6 +7,7 @@ import Image from "next/image";
 import MobileMenu from "./MobileMenu";
 import { useState } from "react";
 import { MenuReveal } from "@/utils/MenuReveal";
+import { Reveal } from "@/utils/Reveal";
 
 const antonio = Antonio({
   weight: ["200", "300", "400", "500", "600", "700"],
@@ -17,19 +18,23 @@ const Header = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   return (
     <>
-      <header className="fixed bg-[#070724] w-screen flex md:flex-col md:gap-[2rem] lg:gap-0 lg:flex-row justify-between items-center px-[1.5rem] lg:px-[2rem] py-[1.2rem] md:py-[2rem] border-b-[0.5px] border-[#97979778] z-[80]">
-        <h1 className={`${antonio.className} text-[2.1rem] font-semibold`}>
-          THE PLANETS
-        </h1>
-        <div>
-          <Nav />
-          <Image
-            onClick={() => setMenuIsOpen(!menuIsOpen)}
-            src={menu}
-            alt="hamburger"
-            className="md:hidden w-[2rem]"
-          />
-        </div>
+      <header className="fixed z-[80]">
+        <Reveal>
+          <div className="bg-[#070724] w-screen flex md:flex-col md:gap-[2rem] lg:gap-0 lg:flex-row justify-between items-center px-[1.5rem] lg:px-[2rem] py-[1.2rem] md:py-[2rem] border-b-[0.5px] border-[#97979778]">
+            <h1 className={`${antonio.className} text-[2.1rem] font-semibold`}>
+              THE PLANETS
+            </h1>
+            <div>
+              <Nav />
+              <Image
+                onClick={() => setMenuIsOpen(!menuIsOpen)}
+                src={menu}
+                alt="hamburger"
+                className="md:hidden w-[2rem]"
+              />
+            </div>
+          </div>
+        </Reveal>
       </header>
       <MenuReveal menuIsOpen={menuIsOpen}>
         <MobileMenu setMenuIsOpen={setMenuIsOpen} />
