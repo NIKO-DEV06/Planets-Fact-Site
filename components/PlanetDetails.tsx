@@ -38,6 +38,7 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
               alt="planet-image"
               width={100}
               height={100}
+              loading="lazy"
             />
             <Image
               src={planet.images.geology}
@@ -47,6 +48,7 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
               className={`${
                 mode === "surface" ? "absolute" : "hidden"
               }  right-1/2 translate-x-1/2 bottom-[3rem] w-auto h-auto md:scale-150 lg:scale-[2]`}
+              loading="lazy"
             />
           </div>
         </ImageReveal>
