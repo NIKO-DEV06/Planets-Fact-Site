@@ -25,7 +25,7 @@ const PlanetDetails = ({ planet }: { planet: PlanetDesc }) => {
         <ImageReveal>
           <div className="relative">
             <Image
-              className="w-auto h-auto scale-[0.5] md:scale-[0.6] lg:scale-[1]"
+              className="w-auto h-auto scale-[0.5] md:scale-[0.6] lg:scale-[1] pl-[1.5rem]"
               src={
                 mode === "overview"
                   ? planet.images.planet
